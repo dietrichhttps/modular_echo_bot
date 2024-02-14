@@ -1,7 +1,12 @@
-from lexicon_methods import get_text
+import os
+from .lexicon_methods import get_text
 
-LEXICON_RU: dict[str: get_text] = {
-    '/start': get_text('ru/start.txt'),
-    '/help': get_text('ru/help.txt'),
-    'no_echo': get_text('ru/no_echo.txt'),
+# Получение абсолютного пути к папке с лексиконом
+LEXICON_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Создание словаря с путями к текстовым файлам
+LEXICON_RU = {
+    '/start': get_text(os.path.join(LEXICON_DIR, 'ru/start.txt')),
+    '/help': get_text(os.path.join(LEXICON_DIR, 'ru/help.txt')),
+    'no_echo': get_text(os.path.join(LEXICON_DIR, 'ru/no_echo.txt')),
 }
